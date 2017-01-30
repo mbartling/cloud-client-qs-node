@@ -10,8 +10,9 @@ var express = require('express');
 var MbedConnectorApi = require('mbed-connector-api');
 
 // CONFIG (change these)
-var accessKey = process.env.ACCESS_KEY || "ChangeMe";
+var accessKey = process.env.ACCESS_KEY;
 var port = process.env.PORT || 8080;
+var host = process.env.HOST || "https://api.connector.mbed.com"
 
 // Paths to resources on the endpoints
 var blinkResourceURI = '/3201/0/5850';
@@ -20,6 +21,7 @@ var buttonResourceURI = '/3200/0/5501';
 
 // Instantiate an mbed Device Connector object
 var mbedConnectorApi = new MbedConnectorApi({
+    host: host,
   accessKey: accessKey
 });
 
